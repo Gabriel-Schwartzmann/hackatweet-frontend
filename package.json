@@ -9,13 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@reduxjs/toolkit": "^2.2.8",
-=======
->>>>>>> 1fdcc66685bc12f4b4a616462a88c280a8f31a41
     "antd": "^5.21.3",
     "modal": "^1.2.0",
     "next": "12.1.6",
