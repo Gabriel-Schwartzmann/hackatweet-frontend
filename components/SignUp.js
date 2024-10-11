@@ -5,6 +5,15 @@ import Link from 'next/link';
 import { login } from '../reducers/user';
 
 function SignUp() {
+
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.user.value)
+    
+    const router = useRouter();
+    if (user.token) {
+        router.push('/home')
+    }
+
     const [signUpFirstname, setSignUpFirstname] = useState('');
     const [signUpUsername, setSignUpUsername] = useState('');
     const [signUpPassword, setSignUpPassword] = useState('');
@@ -42,7 +51,7 @@ function SignUp() {
             <input type="text" placeholder="Firstname" id="signUpFirstname" onChange={(e) => setSignUpFirstname(e.target.value)} value={signUpFirstname} />
             <input type="text" placeholder="Username" id="signUpUsername" onChange={(e) => setSignUpUsername(e.target.value)} value={signUpUsername} />
             <input type="password" placeholder="Password" id="signUpPassword" onChange={(e) => setSignUpPassword(e.target.value)} value={signUpPassword} />
-            <Link href="/home" id="register" onClick={() => handleRegister()}>Sign up</Link>
+            <button id="register" onClick={() => handleRegister()}>Sign up</button>
         </div>
     );
 }
