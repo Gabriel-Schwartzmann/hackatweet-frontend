@@ -83,6 +83,7 @@
   font-weight: 600;
   cursor: pointer;
   margin-top: 10px;
+  color: white;
 }
 
 .logout:hover {
@@ -93,6 +94,7 @@
   font-size: 22px;
   font-weight: 700;
   margin: 20px;
+  color: white;
 }
 
 .createSection {
@@ -109,6 +111,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  color: white;
 }
 
 .input {
@@ -118,6 +121,7 @@
   border-width: 0px 0px 1px 0px;
   font-size: 20px;
   font-weight: 500;
+  color: white;
 }
 
 .input:focus {
@@ -138,6 +142,7 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 600;
   cursor: pointer;
+  color: white;
 }
 
 .button:hover {

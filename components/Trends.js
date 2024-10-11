@@ -11,7 +11,7 @@ function Trends() {
 
   useEffect(() => {
     fetch(
-      `https://hacka-tweet-back-five.vercel.app/tweets/trends/${user.token}`
+      `http://localhost:3000/tweets/trends/${user.token}`
     )
       .then((response) => response.json())
       .then((data) => {

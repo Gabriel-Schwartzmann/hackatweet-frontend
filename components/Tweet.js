@@ -57,7 +57,7 @@ function Tweet(props) {
   return (
     <div className={styles.container}>
       <div className={styles.userInfo}>
-        <Image src="/avatar.png" alt="Avatar" width={46} height={46} className={styles.avatar} />
+        <Image src="/avatar.jpg" alt="Avatar" width={46} height={46} className={styles.avatar} />
         <p className={styles.content}>
           <span className={styles.name}>{props.author.firstName}</span>
           {' '}
@@ -65,7 +65,7 @@ function Tweet(props) {
         </p>
       </div>
 
-      <p>{formattedContent}</p>
+      <p className={styles.tweetText}>{formattedContent}</p>
 
       <FontAwesomeIcon icon={faHeart} onClick={() => handleLike()} className={styles.like} style={likeStyle} />
       <span style={likeStyle}>{props.likes.length}</span>

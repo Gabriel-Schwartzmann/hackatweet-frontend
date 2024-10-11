@@ -27,6 +27,7 @@ function Home() {
       .then((response) => response.json())
       .then((data) => {
         data.result && dispatch(getTweets(data.tweets));
+        data.result && dispatch(getTweets(data.tweets));
       });
   }, []);
 
