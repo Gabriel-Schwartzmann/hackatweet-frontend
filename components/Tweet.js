@@ -11,8 +11,8 @@ function Tweet(props) {
 
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
-  console.log(user)
-  console.log('props:', props)
+  
+ 
 
   const handleLike = () => {
     fetch("http://localhost:3000/tweets/like", {
@@ -53,6 +53,7 @@ function Tweet(props) {
     }
     return word + ' ';
   });
+  console.log(props)
 
   return (
     <div className={styles.container}>
@@ -70,7 +71,7 @@ function Tweet(props) {
       <FontAwesomeIcon icon={faHeart} onClick={() => handleLike()} className={styles.like} style={likeStyle} />
       <span style={likeStyle}>{props.likes.length}</span>
 
-      {props.author.username === user.username && <FontAwesomeIcon icon={faTrashCan} onClick={() => handleDelete()} className={styles.delete} />}
+      {props.author.username === user.username &&<FontAwesomeIcon icon={faTrashCan} onClick={() => handleDelete()} className={styles.delete} />}
     </div>
   );
 }
