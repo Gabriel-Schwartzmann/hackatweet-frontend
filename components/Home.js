@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../reducers/user';
-import { loadTweets, addTweet } from '../reducers/tweets';
+import { loadTweets, addTweet, getTweets } from '../reducers/tweets';
 import Link from 'next/link';
 import Image from 'next/image';
 import LastTweets from './LastTweets';
@@ -26,7 +26,7 @@ function Home() {
     fetch(`http://localhost:3000/tweets`)
       .then((response) => response.json())
       .then((data) => {
-        data.result && dispatch(loadTweets(data.tweets));
+        data.result && dispatch(getTweets(data.tweets));
       });
   }, []);
 
