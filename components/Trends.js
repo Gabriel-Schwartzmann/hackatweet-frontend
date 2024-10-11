@@ -4,8 +4,8 @@ import Link from 'next/link';
 import styles from '../styles/Trends.module.css';
 
 function Trends() {
-  
-    const user = useSelector((state) => state.user.value);
+
+  const user = useSelector((state) => state.user.value);
   const tweetsData = useSelector((state) => state.tweets.value);
   const [trendsValues, setTrendsValues] = useState([]);
 
@@ -32,7 +32,7 @@ function Trends() {
   });
 
   return (
-    <div className={styles.container}>
+    <div /*className={styles.container}*/>
       {trends}
     </div>
   );

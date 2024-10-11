@@ -1,6 +1,5 @@
 import styles from '../styles/Login.module.css';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Modal } from 'antd';
 import { useState } from 'react';
 import SignIn from './SignIn';
@@ -31,7 +30,7 @@ function Login() {
     };
 
     const router = useRouter();
-    if(user.token){
+    if (user.token) {
         router.put('/home');
     };
 

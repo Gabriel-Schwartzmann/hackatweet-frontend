@@ -12,7 +12,12 @@ export const tweetsSlice = createSlice({
         state.value.unshift(action.payload);
       },
     getTweets: (state, action) => {
-      state.value = action.payload;
+      //state.value = action.payload;
+      const tweetsWithLikes = action.payload.map(tweet => ({
+        ...tweet,
+        likes: tweet.likes || [], // Initialiser likes comme un tableau vide si non défini
+      }));
+      state.value = tweetsWithLikes;
     },
     deleteTweet: (state, action) => {
         state.value = state.value.filter(tweet => tweet._id !== action.payload);
