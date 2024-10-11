@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../reducers/user';
-import { loadTweets, addTweet, getTweets } from '../reducers/tweets';
+import { addTweet, getTweets } from '../reducers/tweets';
 import Link from 'next/link';
 import Image from 'next/image';
 import LastTweets from './LastTweets';
@@ -13,7 +13,7 @@ function Home() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
 
-  
+  console.log(user)
   const router = useRouter();
 
   if (!user.token) {
@@ -23,7 +23,8 @@ function Home() {
   const [newTweet, setNewTweet] = useState('');
 
   useEffect(() => {
-    if (!user.token) {
+    if (!user || !user.token) {
+      router.push('/'); 
       return;
     }
     fetch(`http://localhost:3000/tweets`)
@@ -43,7 +44,7 @@ function Home() {
     fetch("http://localhost:3000/tweets", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ token: user.token, content: newTweet }),
+      body: JSON.stringify({ token: user.token, username: user.usernam, firstName: user.firstName, content: newTweet }),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -55,6 +56,8 @@ function Home() {
       });
   };
 
+ console.log(user)
+  
   return (
     <div className={styles.container}>
       <div className={styles.leftSection}>

@@ -1,6 +1,6 @@
 import styles from '../styles/SignUp.module.css';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useDispatch } from 'react';
 import Link from 'next/link';
 import { login } from '../reducers/user';
 

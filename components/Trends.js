@@ -32,7 +32,7 @@ function Trends() {
   });
 
   return (
-    <div /*className={styles.container}*/>
+    <div className={styles.container}>
       {trends}
     </div>
   );

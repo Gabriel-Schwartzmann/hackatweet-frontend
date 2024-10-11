@@ -27,16 +27,22 @@ function SignIn() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username: signInUsername, password: signInPassword }),
-        }).then(response => response.json())
-            .then(data => {
-                if (data.result) {
-                    console.log('dataInSignin', data);
-                    dispatch(login({ username: data.username , token: data.token }));
-                    setSignInUsername('');
-                    setSignInPassword('');
-                    setIsModalVisible(false)
-                }
-            });
+          })
+          .then(response => response.json())
+          .then(data => {
+              if (data.result) {
+                  console.log('dataInSignin', data);
+                  dispatch(login({
+                      username: data.username,   // from the server response
+                      token: data.token,         // from the server response
+                      firstName: data.firstName, // assuming the server sends this
+                      // add other properties as needed
+                  }));
+                  setSignInUsername('');
+                  setSignInPassword('');
+                  setIsModalVisible(false);
+              }
+          });
     };
 
     return (
