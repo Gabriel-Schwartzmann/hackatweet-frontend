@@ -49,7 +49,7 @@ function Home() {
       .then((response) => response.json())
       .then((data) => {
         if (data.result) {
-          const createdTweet = { ...data.tweet, author: user };
+          const createdTweet = { ...data.tweet, author: user.username };
           dispatch(addTweet(createdTweet));
           setNewTweet("");
         }

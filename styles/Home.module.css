@@ -58,6 +58,7 @@
 }
 
 .name {
+  color : white;
   margin-right: 5px;
   font-size: 15px;
   font-family: 'Mont';

@@ -6,7 +6,7 @@ import SignIn from './SignIn';
 import SignUp from './SignUp';
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
-
+//
 
 function Login() {
     const user = useSelector((state) => (state.user.value));

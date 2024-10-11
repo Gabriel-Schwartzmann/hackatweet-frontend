@@ -3,6 +3,8 @@ import Image from 'next/image';
 import { useState, useDispatch } from 'react';
 import Link from 'next/link';
 import { login } from '../reducers/user';
+import { useSelector, useDispatch } from 'react-redux';
+import { useRouter } from 'next/router'
 
 function SignUp() {
 
@@ -17,6 +19,7 @@ function SignUp() {
     const [signUpFirstname, setSignUpFirstname] = useState('');
     const [signUpUsername, setSignUpUsername] = useState('');
     const [signUpPassword, setSignUpPassword] = useState('');
+    const [isModalVisible, setIsModalVisible] = useState(true);
 
     const handleRegister = () => {
         fetch('http://localhost:3000/users/signup', {
@@ -37,6 +40,7 @@ function SignUp() {
 
     return (
         <div>
+            <div className={styles.container}>
             <main className={styles.main}>
                 <Image
                     src="/white-twitter-logo-icon-8.png"
@@ -48,10 +52,11 @@ function SignUp() {
                     Create your Hackatweet account
                 </h1>
             </main>
-            <input type="text" placeholder="Firstname" id="signUpFirstname" onChange={(e) => setSignUpFirstname(e.target.value)} value={signUpFirstname} />
-            <input type="text" placeholder="Username" id="signUpUsername" onChange={(e) => setSignUpUsername(e.target.value)} value={signUpUsername} />
-            <input type="password" placeholder="Password" id="signUpPassword" onChange={(e) => setSignUpPassword(e.target.value)} value={signUpPassword} />
-            <button id="register" onClick={() => handleRegister()}>Sign up</button>
+            <input className={styles.input} type="text" placeholder="Firstname" id="signUpFirstname" onChange={(e) => setSignUpFirstname(e.target.value)} value={signUpFirstname} />
+            <input className={styles.input} type="text" placeholder="Username" id="signUpUsername" onChange={(e) => setSignUpUsername(e.target.value)} value={signUpUsername} />
+            <input className={styles.input} type="password" placeholder="Password" id="signUpPassword" onChange={(e) => setSignUpPassword(e.target.value)} value={signUpPassword} />
+            <button className={styles.register} onClick={() => handleRegister()}>Sign up</button>
+            </div>
         </div>
     );
 }
