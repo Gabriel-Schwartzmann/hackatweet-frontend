@@ -1,13 +1,25 @@
 import styles from '../styles/SignIn.module.css';
 import Image from 'next/image';
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Link from 'next/link';
 import { login } from '../reducers/user';
+import { useRouter } from 'next/router'
 
 function SignIn() {
+
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.user.value)
+    
+    const router = useRouter();
+    if (user.token) {
+        router.push('/home')
+    }
+
     const [signInFirstname, setSignInFirstname] = useState('');
     const [signInUsername, setSignInUsername] = useState('');
     const [signInPassword, setSignInPassword] = useState('');
+    const [isModalVisible, setIsModalVisible] = useState(true);
 
     const handleConnection = () => {
 
@@ -18,7 +30,7 @@ function SignIn() {
         }).then(response => response.json())
             .then(data => {
                 if (data.result) {
-                    dispatch(login({ username: signInUsername, token: data.token }));
+                    dispatch(login({ username: data.username , token: data.token }));
                     setSignInUsername('');
                     setSignInPassword('');
                     setIsModalVisible(false)
@@ -41,7 +53,7 @@ function SignIn() {
             </main>
             <input type="text" placeholder="Username" id="signInUsername" onChange={(e) => setSignInUsername(e.target.value)} value={signInUsername} />
             <input type="password" placeholder="Password" id="signInPassword" onChange={(e) => setSignInPassword(e.target.value)} value={signInPassword} />
-            <Link href="/" id="connect" onClick={() => handleConnection()}>Sign in</Link>
+            <button id="connect" onClick={() => handleConnection()}>Sign in</button>
         </div>
     );
 }
