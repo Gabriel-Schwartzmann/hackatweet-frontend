@@ -42,7 +42,7 @@ function SignUp() {
             <input type="text" placeholder="Firstname" id="signUpFirstname" onChange={(e) => setSignUpFirstname(e.target.value)} value={signUpFirstname} />
             <input type="text" placeholder="Username" id="signUpUsername" onChange={(e) => setSignUpUsername(e.target.value)} value={signUpUsername} />
             <input type="password" placeholder="Password" id="signUpPassword" onChange={(e) => setSignUpPassword(e.target.value)} value={signUpPassword} />
-            <Link href="/" id="register" onClick={() => handleRegister()}>Sign up</Link>
+            <Link href="/home" id="register" onClick={() => handleRegister()}>Sign up</Link>
         </div>
     );
 }

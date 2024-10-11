@@ -32,14 +32,14 @@ function Login() {
 
     const router = useRouter();
     if(user.token){
-        router.put('/home');
+        router.push('/home');
     };
 
     return (
         <div className={styles.container}>
             <div className={styles.leftSide}>
             <Image
-                    src="/white-twitter-logo-icon-8.png"
+                    src="/logo.png"
                     alt="logo"
                     width={400}
                     height={400}
@@ -48,7 +48,7 @@ function Login() {
             <div className={styles.rightSide}>
             <div>
             <Image
-                    src="/white-twitter-logo-icon-8.png"
+                    src="/logo.png"
                     alt="logo"
                     width={50}
                     height={50}
@@ -58,7 +58,7 @@ function Login() {
                     <h1 className={styles.firstTitle}>See what's happening</h1>
                 </main>
                 <h3 className={styles.secondTitle}>Join Hackatweet today.</h3>
-                <button className={styles.Signup} onClick={onClickSignUp}>Sign Up</button>
+                <button className={styles.Signup} onClick={onClickSignUp}><a>Sign Up</a></button>
                 <Modal
                     getContainer="#react-modals"
                     className={styles.modal}
@@ -69,7 +69,7 @@ function Login() {
                     <SignUp />
                 </Modal>
                 <div className={styles.secondTitle}><h5>Already have an account?</h5></div>
-                <button className={styles.Signin} onClick={onClickSignIn}>Sign In</button>
+                <button className={styles.Signin} onClick={onClickSignIn}><a>Sign In</a></button>
                 <Modal
                     getContainer="#react-modals"
                     className={styles.modal}
