@@ -27,10 +27,10 @@ function Home() {
       return;
     }
 
-    fetch(`https://localhost:3000/tweets/${user.token}`)
+    fetch(`http://localhost:3000/tweets/${user.token}`)
       .then((response) => response.json())
       .then((data) => {
-        data.result && dispatch(loadTweets(data.tweets));
+        data.result && dispatch(getTweets(data.tweets));
       });
   }, []);
 
