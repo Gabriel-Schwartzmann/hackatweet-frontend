@@ -23,10 +23,12 @@ function Home() {
   const [newTweet, setNewTweet] = useState('');
 
   useEffect(() => {
+    if (!user.token) {
+      return;
+    }
     fetch(`http://localhost:3000/tweets`)
       .then((response) => response.json())
       .then((data) => {
-        data.result && dispatch(getTweets(data.tweets));
         data.result && dispatch(getTweets(data.tweets));
       });
   }, []);

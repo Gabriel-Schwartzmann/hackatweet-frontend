@@ -30,6 +30,7 @@ function SignIn() {
         }).then(response => response.json())
             .then(data => {
                 if (data.result) {
+                    console.log('dataInSignin', data);
                     dispatch(login({ username: data.username , token: data.token }));
                     setSignInUsername('');
                     setSignInPassword('');
