@@ -32,8 +32,8 @@ function SignIn() {
                 if (data.result) {
                     console.log('dataInSignin', data);
                     dispatch(login({ username: data.username , token: data.token }));
-                    setSignInUsername('');
-                    setSignInPassword('');
+                    //setSignInUsername('');
+                    //setSignInPassword('');
                     setIsModalVisible(false)
                 }
             });
@@ -41,6 +41,7 @@ function SignIn() {
 
     return (
         <div>
+            <div className={styles.container}>
             <main className={styles.main}>
                 <Image
                     src="/white-twitter-logo-icon-8.png"
@@ -52,9 +53,10 @@ function SignIn() {
                     Connect to Hackatweet
                 </h1>
             </main>
-            <input type="text" placeholder="Username" id="signInUsername" onChange={(e) => setSignInUsername(e.target.value)} value={signInUsername} />
-            <input type="password" placeholder="Password" id="signInPassword" onChange={(e) => setSignInPassword(e.target.value)} value={signInPassword} />
-            <button id="connect" onClick={() => handleConnection()}>Sign in</button>
+            <input className={styles.input} type="text" placeholder="Username" id="signInUsername" onChange={(e) => setSignInUsername(e.target.value)} value={signInUsername} />
+            <input className={styles.input} type="password" placeholder="Password" id="signInPassword" onChange={(e) => setSignInPassword(e.target.value)} value={signInPassword} />
+            <button className={styles.register} onClick={() => handleConnection()}>Sign in</button>
+        </div>
         </div>
     );
 }
