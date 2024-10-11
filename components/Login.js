@@ -5,27 +5,35 @@ import { Modal } from 'antd';
 import { useState } from 'react';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
+import { useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 
 
 function Login() {
+    const user = useSelector((state) => (state.user.value));
     const [isModalSignInVisible, setIsModalSignInVisible] = useState(false);
     const [isModalSignUpVisible, setIsModalSignUpVisible] = useState(false);
 
     const onClickSignIn = () => {
         setIsModalSignInVisible(true);
-    }
+    };
 
     const onClickSignUp = () => {
         setIsModalSignUpVisible(true);
-    }
+    };
 
     const handleCloseSignIn = () => {
         setIsModalSignInVisible(false);
-    }
+    };
 
     const handleCloseSignUp = () => {
         setIsModalSignUpVisible(false);
-    }
+    };
+
+    const router = useRouter();
+    if(user.token){
+        router.put('/home');
+    };
 
     return (
         <div>
