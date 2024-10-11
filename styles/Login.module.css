@@ -1,0 +1,80 @@
+@font-face {
+  font-family: "Mont";
+  src: url("/fonts/Mont-Heavy.otf");
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .leftSide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 40vw;
+    background-image: url('https://abs.twimg.com/sticky/illustrations/lohp_1302x955.png');
+  }
+  
+  .rightSide {
+    height: 100vh;
+    width: 60vw;
+    padding: 30px;
+    background-color: #15202b;
+    font-family: "Mont";
+  }
+
+  .Signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 200px;
+    border: 1px rgb(114, 131, 148) solid;
+    margin-bottom: 15px;
+    background-color: #15202b;
+    border-radius: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    color: blue;
+  }
+  
+  .Signup:hover {
+    background-color: #3384cf;
+  }
+  
+  .Signin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 200px;
+    border: 1px rgb(114, 131, 148) solid;
+    background-color: #15202b;
+    border-radius: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    color: blue;
+  }
+  
+  .Signin:hover {
+    background-color: #3384cf;
+  }
+
+  .firstTitle {
+    color: white;
+    font-size: 80px;
+  }
+
+  .secondTitle {
+    color: white;
+    font-size: 40px;
+  }

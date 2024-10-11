@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import LastTweets from './LastTweets';
 import Trends from './Trends';
-import Tweet from './Tweet';
+import Tweet from './Tweet.js'
 
 
 function Home() {
@@ -23,14 +23,14 @@ function Home() {
 
   return (
     <div>
-      <div id="left"><Login />
-      <button onClick={handleLogout}>Logout</button>
+      <div id="left"><Login />logout
       </div>
-      <div id="center">
-        <Tweet/>
-        <LastTweets/>
+      <div id="center"><LastTweets />
       </div>
-      <div id="right"><Trends/></div>
+      <div>
+        <Tweet />
+      </div>
+      <div id="right"><Trends /></div>
     </div>
   );
 }

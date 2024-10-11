@@ -35,20 +35,29 @@ function Login() {
     };
 
     return (
-        <div>
-            <div>y</div>
+        <div className={styles.container}>
+            <div className={styles.leftSide}>
+            <Image
+                    src="/white-twitter-logo-icon-8.png"
+                    alt="logo"
+                    width={400}
+                    height={400}
+                />
+            </div>
+            <div className={styles.rightSide}>
             <div>
-                <Image
+            <Image
                     src="/white-twitter-logo-icon-8.png"
                     alt="logo"
                     width={50}
                     height={50}
                 />
+            </div>
                 <main className={styles.main}>
-                    <h1 className={styles.title}>See what's happening</h1>
+                    <h1 className={styles.firstTitle}>See what's happening</h1>
                 </main>
-                <div><h3>Join Hackatweet today.</h3></div>
-                <button onClick={onClickSignUp}>Sign Up</button>
+                <h3 className={styles.secondTitle}>Join Hackatweet today.</h3>
+                <button className={styles.Signup} onClick={onClickSignUp}>Sign Up</button>
                 <Modal
                     getContainer="#react-modals"
                     className={styles.modal}
@@ -58,8 +67,8 @@ function Login() {
                 >
                     <SignUp />
                 </Modal>
-                <div><h5>Already have an account?</h5></div>
-                <button onClick={onClickSignIn}>Sign In</button>
+                <div className={styles.secondTitle}><h5>Already have an account?</h5></div>
+                <button className={styles.Signin} onClick={onClickSignIn}>Sign In</button>
                 <Modal
                     getContainer="#react-modals"
                     className={styles.modal}

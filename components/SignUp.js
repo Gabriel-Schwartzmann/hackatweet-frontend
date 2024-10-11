@@ -13,11 +13,11 @@ function SignUp() {
         fetch('http://localhost:3000/users/signup', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ firstname: signUpFirstname, username: signUpUsername, password: signUpPassword }),
+            body: JSON.stringify({ firstName: signUpFirstname, username: signUpUsername, password: signUpPassword }),
         }).then(response => response.json())
             .then(data => {
                 if (data.result) {
-                    dispatch(login({ firstname: signUpFirstname, username: signUpUsername, token: data.token }));
+                    dispatch(login({ firstName: signUpFirstname, username: signUpUsername, token: data.token }));
                     setSignUpUsername('');
                     setSignUpFirstname('');
                     setSignUpPassword('');
