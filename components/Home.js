@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../reducers/user';
-import { loadTweets, addTweet, getTweets } from '../reducers/tweets';
+import { addTweet, getTweets } from '../reducers/tweets';
 import Link from 'next/link';
 import Image from 'next/image';
 import LastTweets from './LastTweets';
@@ -23,10 +23,12 @@ function Home() {
   const [newTweet, setNewTweet] = useState('');
 
   useEffect(() => {
+    if (!user.token) {
+      return;
+    }
     fetch(`http://localhost:3000/tweets`)
       .then((response) => response.json())
       .then((data) => {
-        data.result && dispatch(getTweets(data.tweets));
         data.result && dispatch(getTweets(data.tweets));
       });
   }, []);
@@ -46,7 +48,7 @@ function Home() {
       .then((response) => response.json())
       .then((data) => {
         if (data.result) {
-          const createdTweet = { ...data.tweet, author: user };
+          const createdTweet = { ...data.tweet, author: user.username };
           dispatch(addTweet(createdTweet));
           setNewTweet("");
         }
